@@ -13,7 +13,7 @@ services:
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
-  rails_api_docker:
+  demo-web:
     build: .
     command: "./bin/rails server"
     environment:
