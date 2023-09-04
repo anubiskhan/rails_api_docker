@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
 
     def self.home
-        self.select(:id, :title, :description, :source)
+        self.order(:id).select(:id, :title, :description, :source)
     end
 
 end
