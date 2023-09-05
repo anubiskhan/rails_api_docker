@@ -29,6 +29,14 @@ services:
       - db
     ports:
       - "3000:3000"
+  webserver:
+    image: nginx:latest
+    ports:
+      - 80:80
+    restart: always
+    volumes:
+      - ./nginx/conf/:/etc/nginx/conf.d/:ro
+      - ./public:/my_app/public
 
 volumes:
   postgres_data: {}
