@@ -15,6 +15,7 @@ services:
       - "5432:5432"
   demo-web:
     image: anubiskhan/rails_api_docker
+    platform: linux/amd64
     build: .
     command: "./bin/rails server"
     environment:
@@ -36,6 +37,7 @@ services:
       - "6379:6379"
   sidekiq:
     image: anubiskhan/rails_api_docker
+    platform: linux/amd64
     depends_on:
       - 'db'
       - 'redis'
