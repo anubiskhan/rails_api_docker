@@ -29,14 +29,20 @@ services:
       - db
     ports:
       - "3000:3000"
-  webserver:
-    image: nginx:latest
+  redis:
+    image: redis:7
     ports:
-      - 80:80
-    restart: always
+      - "6379:6379"
+  sidekiq:
+    depends_on:
+      - 'db'
+      - 'redis'
+    build: .
+    command: bundle exec sidekiq
     volumes:
-      - ./nginx/conf/:/etc/nginx/conf.d/:ro
-      - ./public:/my_app/public
+      - '.:/rails'
+    environment:
+      - REDIS_URL_SIDEKIQ=redis://redis:6379/1
 
 volumes:
   postgres_data: {}

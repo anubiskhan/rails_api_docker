@@ -1,11 +1,8 @@
 # README
 
 # TO-DO
-- improve this doC
+- improve this doc
 - add redis & sidekiq
-- fix cloudfront/dns so that www.anubiskhan.com points to my api ec2
-    - this is probably quickest fix, but no reason to have it open to the world.
-    - LATER: should be on a vpc that just talks to other stuff on aws(frontend, lambda, etc)
 - add some functionality and tests
 - ci/cd
     - tests before PR acceptable
