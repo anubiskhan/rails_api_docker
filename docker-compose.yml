@@ -35,6 +35,7 @@ services:
     ports:
       - "6379:6379"
   sidekiq:
+    image: anubiskhan/rails_api_docker
     depends_on:
       - 'db'
       - 'redis'
